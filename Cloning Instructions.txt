@@ -1,0 +1,75 @@
+indicate DBA to refresh content server DB
+
+Check all CS services are stopped before DB restore
+
+Backup copies of the kuaf and kini tables if we want to hold the User cridentials.
+
+clean the old EFS folders and Copy EFS files from source system
+
+Copy OT installation folder to the target from Source system
+ Index cleanup
+Backup the logs
+Refresh modules
+Refresh patches
+Refresh support
+Refresh config
+
+1.	Ensure Source System has been patched with up to date patches and they are deployed..!!
+2.	Ensure CS16.2.3 is installed on Target System and IIS setup etc so it works when doing …?func=admin.index (but hasn’t been setup yet)
+3.	Shutdown CS services on Source System and Target System
+4.	Change D:\OPENTEXT to D:\OPENTEXT_ORIG on CS16ADMPD02
+5.	Copy \\ CS16ADMPD01\D$\OPENTEXT to CS16ADMPD02 D:\ drive
+6.	In CS16ADMPD02 D:\OPENTEXT, do the following: 
+a.	Remove the following files from d:\OPENTEXT\config into a config_removed directory:
+i.	documentServer*
+ii.	otadmin.*
+iii.	query*
+iv.	search.ini
+b.	Delete the contents of the logs directory
+c.	Modify the OPENTEXT.INI file as follows:
+i.	Remove the dftConnection line at the start of the file
+ii.	Remove the [dftConnection] section from the end of the opentext.ini file
+iii.	Modify in the [loader] section, put a # at the front of each line in the section
+iv.	In the [loader] section, add a new line: load=sockserv (see below)
+7.	Start CS services again
+8.	Configure CS16ADMPD02 using ?func=admin.index and join it to the existing database, following the same kind of instructions in the QA build document S2.17 from this point…
+
+
+CS16 installation
+Service account BEILUX\svc_ecru 
+Password mdh0jE<0
+non sso url otds
+&otdsauth=no-sso
+
+cs16 on VMU-ECR16-02
+
+sqlplus OTCS16/otcs16
+sqlplus OTCS162/otcs162
+sqlplus OTCS163/otcs163
+sqlplus system/Livelink16 
+ 
+
+
+Service account BEILUX\svc_ecrt  
+Password 3RNPWCfN
+
+Service account BEILUX\svc_ecru 352621348322
+
+Password mdh0jE<0
+
+Service account BEILUX\svc_ecr
+Password r-.95DG2 
+
+
+
+
+http://vmd-ged105-01:9797/  
+http://vmp-ged105-01:9797/cs/patches
+https://knowledge.opentext.com/knowledge/llisapi.dll?func=ll&objId=76532055&objAction=viewincontainer&ShowReplyEntry=76552857#forum_topic_76552857 
+
+
+Nagios: Admin/initial    
+http://vmd-gedow-01.lux.eib.org/nagvis/nagvis/index.php?map=ged-prod105-vm 
+http://172.26.76.32/centreon/main.php?p=502 
+1ONb3T6U
+ 
