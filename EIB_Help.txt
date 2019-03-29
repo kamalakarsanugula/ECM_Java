@@ -1,0 +1,126 @@
+CS16 installation
+Service account BEILUX\svc_ecru 
+Password mdh0jE<0
+
+non sso url otds
+&otdsauth=no-sso
+
+cs16 on VMU-ECR16-02
+
+sqlplus OTCS16/otcs16
+sqlplus OTCS162/otcs162
+sqlplus OTCS163/otcs163
+sqlplus system/Livelink16  
+
+         LKQZU6
+
+Service account BEILUX\svc_ecrt  
+Password 3RNPWCfN
+
+Service account BEILUX\svc_ecru 
+Password mdh0jE<0
+
+Service account BEILUX\svc_ecr
+Password r-.95DG2 
+
+http://vmd-ged105-01:9797/  
+http://vmp-ged105-01:9797/cs/patches
+https://knowledge.opentext.com/knowledge/llisapi.dll?func=ll&objId=76532055&objAction=viewincontainer&ShowReplyEntry=76552857#forum_topic_76552857 
+
+
+Nagios: Admin/initial    
+http://vmd-gedow-01.lux.eib.org/nagvis/nagvis/index.php?map=ged-prod105-vm 
+http://172.26.76.32/centreon/main.php?p=502 
+1ONb3T6U
+
+19703a55-478f-4382-bf91-b886bcfeccf1
+
+The all the instances have been updated 16.2.7
+http://vmu-ecr16-02/ged/ged.dll?func=admin.index
+http://vmu-ecr16-02/ged2/ged.dll?func=admin.index
+http://vmu-ecr16-02/ged3/ged.dll?&otdsauth=no-sso 
+
+http://vmu-ecr16-02/ged/ged.dll?&otdsauth=no-sso 
+http://vmu-ecr16-02/OTCS4/cs.exe?&otdsauth=no-sso 
+otadmin@otds.admin
+otds16
+
+
+-----------------CSD1-----------------
+Creation was successful:
+    SANUGULA
+    r!19U7k(2H
+-----------------------------------------
+        
+-----------------CSD2-----------------
+Creation was successful:
+    SANUGULA
+    Hx$5147P(m
+-----------------------------------------
+        
+-----------------CST-----------------
+Creation was successful:
+    SANUGULA
+    1=C918Uez&
+-----------------------------------------
+        
+-----------------CSU-----------------
+Creation was successful:
+    SANUGULA
+    /4AngZ(741
+-----------------------------------------
+        
+-----------------CSP-----------------
+Creation was successful:
+    SANUGULA
+    7a13aN3?C/
+-----------------------------------------
+
+AD account
+ad-sanug
+l1vel1nk
+admin.index--01SC
+
+DEV105_1
+Admin/shiny-8 
+01SC
+
+
+vmu-ged105-01
+http://vmu-ged105-01/OTCS/cs.exe?func=ll&objId=101109792&objAction=browse&sort=name&viewType=1
+
+EXEC DBMS_STATS.GATHER_DATABASE_STATS (gather_sys=>TRUE); 
+
+EXEC dbms_stats.gather_schema_stats('LLMAINP', cascade=>TRUE);
+
+BEILUX\svc_llmaind 
+WRNTF=7X
+
+UserName="BEILUX\svc_llmainu" PWFile=".\svc_llmainu@beiluxPWD.txt
++J2KDCWO
+
+PD DataBase
+llmainp/L0_12dBm@CSD1
+
+
+select sid,target_desc,(Sofar*100)/totalwork as percentage_complete from gv$session_longops where time_remaining>0;
+
+
+gwmi Win32_Service -Computer VMU-ECR16-02 | Select-Object DisplayName, Started, StartMode, PSComputerName | Sort-Object DisplayName
+
+
+select dt.dataid, dt.Name, dt.parentid, pv.providertype, pv.providerdata from dtree dt, dbrowseancestors dba, dversdata dv, providerdata pv
+where
+dba.ancestorid=890667
+and
+dba.dataid=dt.dataid
+and
+dt.subtype in (144,749,223,146)
+and
+dt.dataid=dv.docid
+and
+pv.providerid=dv.providerid
+and
+pv.providertype='MVPVolume10'
+
+

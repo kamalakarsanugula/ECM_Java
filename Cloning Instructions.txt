@@ -47,6 +47,20 @@ sqlplus OTCS16/otcs16
 sqlplus OTCS162/otcs162
 sqlplus OTCS163/otcs163
 sqlplus system/Livelink16 
+
+unzipe multiple file 
+Get-ChildItem D:\installer\HotFixs\hotfixzip\*zip | Expand-Archive -DestinationPath D:\installer\HotFixs\hotfix\
+
+Get-ChildItem D:\installer\PATCHSC\New_folder\patches\*zip | Expand-Archive -DestinationPath D:\installer\PATCHSC\New_folder\patches\patch\
+
+alter session set "_ORACLE_SCRIPT"=true;
+
+CREATE USER otcs105 IDENTIFIED BY otcs105;
+GRANT CONNECT, RESOURCE, DBA TO otcs105;
+grant all privileges to otcs105;
+ALTER USER otcs105 DEFAULT TABLESPACE otcs105; 
+
+expdp system/Livelink16 schemas=OTCS105 directory=my_data_pump_dir dumpfile=OTCS105_25_03_2019.dmp logfile=expdp_OTCS105_25_03_2019.log
  
 
 
